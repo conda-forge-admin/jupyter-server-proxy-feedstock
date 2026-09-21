@@ -12,13 +12,13 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/j/jupyter-server-proxy/jupyter_server_proxy-${{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/j/jupyter-server-proxy/jupyter_server_proxy-${{ version }}.tar.gz
   sha256: b3f8fdb4c6b59fdb41f0d5342f002719eaad5f375e87fa659e21fe69d35ee6c1
 
 build:
   number: 0
   noarch: python
-  script: ${{ PYTHON }} -m pip install -vv . --no-deps --no-build-isolation --disable-pip-version-check
+  script: ${{ PYTHON }} -m pip install -vv . --no-deps --no-build-isolation --disable-pip-version-check --check-build-dependencies
   python:
     entry_points:
       - jupyter-standaloneproxy = jupyter_server_proxy.standalone:main
